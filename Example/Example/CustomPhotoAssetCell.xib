@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,24 +24,36 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deselected" highlightedImage="selected" translatesAutoresizingMaskIntoConstraints="NO" id="aVc-EA-93q" userLabel="Selection Image View">
                         <rect key="frame" x="26" y="26" width="20" height="20"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doB-TV-iK9">
+                        <rect key="frame" x="26" y="26" width="20" height="20"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="aVc-EA-93q" firstAttribute="trailing" secondItem="doB-TV-iK9" secondAttribute="trailing" id="4pe-cE-wzI"/>
                 <constraint firstItem="Cmf-AD-y9C" firstAttribute="leading" secondItem="fWr-2S-WgB" secondAttribute="leading" id="D6I-kL-dcj"/>
                 <constraint firstItem="Cmf-AD-y9C" firstAttribute="top" secondItem="fWr-2S-WgB" secondAttribute="top" id="LBi-4j-OLt"/>
                 <constraint firstAttribute="trailing" secondItem="Cmf-AD-y9C" secondAttribute="trailing" id="Vj0-q0-Ejr"/>
+                <constraint firstItem="doB-TV-iK9" firstAttribute="height" secondItem="aVc-EA-93q" secondAttribute="height" id="XFR-lV-M7n"/>
                 <constraint firstAttribute="trailing" secondItem="aVc-EA-93q" secondAttribute="trailing" constant="4" id="gox-Tj-hgK"/>
                 <constraint firstAttribute="bottom" secondItem="aVc-EA-93q" secondAttribute="bottom" constant="4" id="iZ5-hO-sve"/>
+                <constraint firstItem="aVc-EA-93q" firstAttribute="bottom" secondItem="doB-TV-iK9" secondAttribute="bottom" id="lr6-Ks-JlL"/>
+                <constraint firstItem="doB-TV-iK9" firstAttribute="width" secondItem="aVc-EA-93q" secondAttribute="width" id="s4X-g4-Arz"/>
                 <constraint firstAttribute="bottom" secondItem="Cmf-AD-y9C" secondAttribute="bottom" id="wdz-bn-KZT"/>
             </constraints>
             <connections>
                 <outlet property="assetImageView" destination="Cmf-AD-y9C" id="0ll-9D-V3U"/>
+                <outlet property="photoNumberLabel" destination="doB-TV-iK9" id="QFa-0q-Ubz"/>
                 <outlet property="selectedImageView" destination="aVc-EA-93q" id="tWo-4k-lMB"/>
             </connections>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="deselected" width="20" height="20"/>
-        <image name="selected" width="20" height="20"/>
+        <image name="selected" width="30" height="30"/>
     </resources>
 </document>

@@ -24,36 +24,13 @@ class ViewController: UIViewController {
 
     @IBAction func showPicker(_ sender: Any) {
         print("showPicker")
-//        let bundle = Bundle(identifier: "com.darkdong.PhotoPicker")
-//        let picker = UIStoryboard(name: "PhotoPicker", bundle: bundle).instantiateInitialViewController() as! PhotoPickerNavigationController
         let config = PickerConfig()
         config.rootTitle = "Root Title"
         config.mediaType = .image
         config.numberOfAssetColumns = 3
-        config.nibForAssetCell = UINib(nibName: "CustomPhotoAssetCell", bundle: nil)
         let picker = PhotoPickerNavigationController.nc(config: config)
         picker.pickerDelegate = self
         present(picker, animated: true, completion: nil)
-    }
-}
-
-class CustomPhotoAssetCell: PhotoAssetCell {
-    @IBOutlet var assetImageView: UIImageView!
-    @IBOutlet var selectedImageView: UIImageView!
-    
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        selectedImageView.image = #imageLiteral(resourceName: "deselected")
-        selectedImageView.highlightedImage = #imageLiteral(resourceName: "selected")
-    }
-    
-    override open var photoAssetImageView: UIImageView! {
-        return assetImageView
-    }
-    
-    override open var photoSelectionImageView: UIImageView! {
-        return selectedImageView
     }
 }
 
@@ -68,9 +45,10 @@ extension ViewController: PhotoPickerDelegate {
     
     func picker(_ picker: PhotoPickerNavigationController, shouldSelectAsset: PHAsset, selectedAssets: [PHAsset]) -> Bool {
         //limit number of selections
-        if selectedAssets.count >= 5 {
+        if selectedAssets.count >= 9 {
             return false
         }
         return true
     }
 }
+

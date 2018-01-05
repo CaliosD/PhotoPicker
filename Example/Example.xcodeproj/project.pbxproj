@@ -13,7 +13,6 @@
 		4295CC9D1F286D96005238CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4295CC9B1F286D96005238CE /* Main.storyboard */; };
 		4295CC9F1F286D96005238CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4295CC9E1F286D96005238CE /* Assets.xcassets */; };
 		4295CCA21F286D96005238CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4295CCA01F286D96005238CE /* LaunchScreen.storyboard */; };
-		42B2C8471F6290800015E756 /* CustomPhotoAssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B2C8461F6290800015E756 /* CustomPhotoAssetCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +47,6 @@
 		4295CC9E1F286D96005238CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4295CCA11F286D96005238CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4295CCA31F286D96005238CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42B2C8461F6290800015E756 /* CustomPhotoAssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPhotoAssetCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +91,6 @@
 				4295CC971F286D96005238CE /* AppDelegate.swift */,
 				4295CC991F286D96005238CE /* ViewController.swift */,
 				4295CC9B1F286D96005238CE /* Main.storyboard */,
-				42B2C8461F6290800015E756 /* CustomPhotoAssetCell.xib */,
 				4295CC9E1F286D96005238CE /* Assets.xcassets */,
 				4295CCA01F286D96005238CE /* LaunchScreen.storyboard */,
 				4295CCA31F286D96005238CE /* Info.plist */,
@@ -142,7 +139,7 @@
 				TargetAttributes = {
 					4295CC931F286D96005238CE = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = PRZ5HR5F63;
+						DevelopmentTeam = N9K6HVRBSX;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
@@ -189,7 +186,6 @@
 			files = (
 				4295CCA21F286D96005238CE /* LaunchScreen.storyboard in Resources */,
 				4295CC9F1F286D96005238CE /* Assets.xcassets in Resources */,
-				42B2C8471F6290800015E756 /* CustomPhotoAssetCell.xib in Resources */,
 				4295CC9D1F286D96005238CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,7 +323,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PRZ5HR5F63;
+				DEVELOPMENT_TEAM = N9K6HVRBSX;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -342,7 +338,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = PRZ5HR5F63;
+				DEVELOPMENT_TEAM = N9K6HVRBSX;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
