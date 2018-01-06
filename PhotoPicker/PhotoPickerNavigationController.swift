@@ -38,7 +38,8 @@ public class PickerConfig: NSObject {
     public var interAssetSpacing: CGFloat = 2
     
     //custom UI
-    public var nibForAssetCell: UINib?
+	public var showSelectedNumber: Bool = false
+	var nibForAssetCell: UINib?
 }
 
 public class PhotoPickerNavigationController: UINavigationController {

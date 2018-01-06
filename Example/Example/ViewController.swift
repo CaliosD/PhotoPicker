@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         config.rootTitle = "Root Title"
         config.mediaType = .image
         config.numberOfAssetColumns = 3
+		config.showSelectedNumber = true
         let picker = PhotoPickerNavigationController.nc(config: config)
         picker.pickerDelegate = self
         present(picker, animated: true, completion: nil)

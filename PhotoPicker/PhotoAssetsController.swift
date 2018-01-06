@@ -28,6 +28,9 @@ open class PhotoAssetsController: UICollectionViewController {
     }
 	
 	private var selectedIndexPaths: [IndexPath] = []
+	private var showSelectedNumber: Bool {
+		return pickerConfig != nil ? pickerConfig!.showSelectedNumber : false
+	}
 	
     deinit {
         print(type(of: self), #function)
@@ -55,7 +58,7 @@ open class PhotoAssetsController: UICollectionViewController {
         
         let nibForCell = pickerConfig?.nibForAssetCell ?? UINib(nibName: "PhotoAssetCell", bundle: photoPickerBundle)
         collectionView?.register(nibForCell, forCellWithReuseIdentifier: cellReuseIdentifier)
-        
+		
         PHPhotoLibrary.requestAuthorization { (status) in
             switch status {
             case .authorized: //3
@@ -81,8 +84,6 @@ open class PhotoAssetsController: UICollectionViewController {
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! PhotoBrowserController
         vc.assets = selectedAssets
-		// TODO: pass selectedIndexes to browser
-		// vc.selectedIndexes = selectedIndexes
     }
     
     //called on non-main queue
@@ -140,6 +141,7 @@ extension PhotoAssetsController {
     open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let asset = assets[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! PhotoAssetCell
+		cell.showSelectedNumber = showSelectedNumber
         let layout = collectionView.collectionViewLayout as!  UICollectionViewFlowLayout
         let scale = UIScreen.main.scale
         let assetPixelSize = CGSize(width: layout.itemSize.width * scale, height: layout.itemSize.height * scale)
@@ -148,7 +150,8 @@ extension PhotoAssetsController {
 		} else {
 			cell.reuse(with: asset, assetPixelSize: assetPixelSize)
 		}
-        return cell
+
+		return cell
     }
     
     open override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -165,8 +168,10 @@ extension PhotoAssetsController {
         selectedAssets.append(asset)
 		selectedIndexPaths.append(indexPath)
 		
-		let cell = collectionView.cellForItem(at: indexPath) as! PhotoAssetCell
-		cell.updateSelectedIndex(selectedAssets.count)
+		if showSelectedNumber {
+			let cell = collectionView.cellForItem(at: indexPath) as! PhotoAssetCell
+			cell.updateSelectedIndex(selectedAssets.count)
+		}
     }
     
     open override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -174,7 +179,10 @@ extension PhotoAssetsController {
         let index = selectedAssets.index(of: asset)!
         selectedAssets.remove(at: index)
 		
-		if selectedIndexPaths.contains(indexPath), let selectedIndex = selectedIndexPaths.index(of: indexPath) {
+		if showSelectedNumber {
+			guard selectedIndexPaths.contains(indexPath), let selectedIndex = selectedIndexPaths.index(of: indexPath) else {
+				return
+			}
 			selectedIndexPaths.remove(at: selectedIndex)
 			let sliceIndexPaths = selectedIndexPaths[selectedIndex..<selectedIndexPaths.endIndex]
 			_ = sliceIndexPaths.map { sliceIndexPath in
@@ -204,23 +212,26 @@ open class PhotoAssetCell: UICollectionViewCell {
 		return photoNumberLabel
 	}
 	
+	open var showSelectedNumber: Bool = false
     override open var isSelected: Bool {
         didSet {
             photoSelectionImageView.isHighlighted = isSelected
-			if !isSelected {
+			if showSelectedNumber, !isSelected {
 				photoSelectionLabel.text = ""
 			}
         }
     }
 	
-    override open func awakeFromNib() {
-        super.awakeFromNib()        
+	override open func awakeFromNib() {
+        super.awakeFromNib()
+		photoSelectionImageView.highlightedImage = showSelectedNumber ? #imageLiteral(resourceName: "selected_number") : #imageLiteral(resourceName: "selected")
     }
     
 	open func reuse(with asset: PHAsset, assetPixelSize: CGSize, selectedIndex: Int? = nil) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
         self.asset = asset
-		if let selectedIndex = selectedIndex {
+		
+		if showSelectedNumber, let selectedIndex = selectedIndex {
 			updateSelectedIndex(selectedIndex)
 		}
 
