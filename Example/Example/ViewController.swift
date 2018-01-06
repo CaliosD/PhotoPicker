@@ -29,6 +29,8 @@ class ViewController: UIViewController {
         config.mediaType = .image
         config.numberOfAssetColumns = 3
 		config.showSelectedNumber = true
+		config.barTintColor = .darkGray
+		
         let picker = PhotoPickerNavigationController.nc(config: config)
         picker.pickerDelegate = self
         present(picker, animated: true, completion: nil)

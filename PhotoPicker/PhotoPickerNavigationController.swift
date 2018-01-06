@@ -39,6 +39,7 @@ public class PickerConfig: NSObject {
     
     //custom UI
 	public var showSelectedNumber: Bool = false
+	public var barTintColor: UIColor?
 	var nibForAssetCell: UINib?
 }
 

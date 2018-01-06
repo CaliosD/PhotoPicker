@@ -40,10 +40,16 @@ open class PhotoAssetsController: UICollectionViewController {
         super.viewDidLoad()
         
         print(type(of: self), #function)
-        
-        cancelButtonItem.title = pickerConfig?.cancelTitle
-        previewButtonItem.title = pickerConfig?.previewTitle
-        doneButtonItem.title = pickerConfig?.doneTitle
+		
+		if let pickerConfig = pickerConfig {
+			cancelButtonItem.title = pickerConfig.cancelTitle
+			previewButtonItem.title = pickerConfig.previewTitle
+			doneButtonItem.title = pickerConfig.doneTitle
+			
+			cancelButtonItem.tintColor = pickerConfig.barTintColor
+			previewButtonItem.tintColor = pickerConfig.barTintColor
+			doneButtonItem.tintColor = pickerConfig.barTintColor
+		}
         
         let layout = collectionView!.collectionViewLayout as!  UICollectionViewFlowLayout
         let spacing = pickerConfig!.interAssetSpacing
