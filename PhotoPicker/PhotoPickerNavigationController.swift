@@ -32,7 +32,7 @@ public class PickerConfig: NSObject {
 //    public var albumCoverImage: UIImage? {
 //        return UIImage(named: "album_cover", in: PhotoPickerNavigationController.bundle, compatibleWith: nil)
 //    }
-    
+	
     // layout
     public var numberOfAssetColumns = 4
     public var interAssetSpacing: CGFloat = 2

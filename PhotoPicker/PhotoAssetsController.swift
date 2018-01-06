@@ -111,6 +111,7 @@ open class PhotoAssetsController: UICollectionViewController {
                 self?.collectionView?.performBatchUpdates({
                     self?.collectionView?.scrollToEnd(animated: false)
                 }, completion: { _ in
+					print("load data at main thread: \(Thread.isMainThread)")
                 })
             }
         }
@@ -212,7 +213,12 @@ open class PhotoAssetCell: UICollectionViewCell {
 		return photoNumberLabel
 	}
 	
-	open var showSelectedNumber: Bool = false
+	open var showSelectedNumber: Bool = false {
+		didSet {
+			selectionImageView.highlightedImage = showSelectedNumber ? UIImage(named: "selected_number", in: photoPickerBundle, compatibleWith: nil) : UIImage(named: "selected", in: photoPickerBundle, compatibleWith: nil)
+		}
+	}
+	
     override open var isSelected: Bool {
         didSet {
             photoSelectionImageView.isHighlighted = isSelected
@@ -224,13 +230,12 @@ open class PhotoAssetCell: UICollectionViewCell {
 	
 	override open func awakeFromNib() {
         super.awakeFromNib()
-		photoSelectionImageView.highlightedImage = showSelectedNumber ? #imageLiteral(resourceName: "selected_number") : #imageLiteral(resourceName: "selected")
     }
     
 	open func reuse(with asset: PHAsset, assetPixelSize: CGSize, selectedIndex: Int? = nil) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
         self.asset = asset
-		
+
 		if showSelectedNumber, let selectedIndex = selectedIndex {
 			updateSelectedIndex(selectedIndex)
 		}
