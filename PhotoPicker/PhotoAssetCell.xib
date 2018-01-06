@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,10 +23,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deselected" highlightedImage="selected" translatesAutoresizingMaskIntoConstraints="NO" id="aVc-EA-93q" userLabel="Selection Image View">
-                        <rect key="frame" x="30" y="30" width="20" height="20"/>
+                        <rect key="frame" x="23" y="23" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="qIJ-lp-Cnh"/>
+                            <constraint firstAttribute="width" secondItem="aVc-EA-93q" secondAttribute="height" id="sR5-Cs-5Ug"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWk-k4-I2l">
-                        <rect key="frame" x="30" y="30" width="20" height="20"/>
+                        <rect key="frame" x="23" y="23" width="22" height="22"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <nil key="textColor"/>
@@ -34,14 +39,14 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="RWk-k4-I2l" secondAttribute="trailing" id="0Qb-Rb-38l"/>
+                <constraint firstAttribute="trailing" secondItem="RWk-k4-I2l" secondAttribute="trailing" constant="5" id="0Qb-Rb-38l"/>
                 <constraint firstItem="Cmf-AD-y9C" firstAttribute="leading" secondItem="fWr-2S-WgB" secondAttribute="leading" id="D6I-kL-dcj"/>
-                <constraint firstAttribute="bottom" secondItem="RWk-k4-I2l" secondAttribute="bottom" id="ECy-PY-S0a"/>
+                <constraint firstAttribute="bottom" secondItem="RWk-k4-I2l" secondAttribute="bottom" constant="5" id="ECy-PY-S0a"/>
                 <constraint firstItem="Cmf-AD-y9C" firstAttribute="top" secondItem="fWr-2S-WgB" secondAttribute="top" id="LBi-4j-OLt"/>
                 <constraint firstItem="RWk-k4-I2l" firstAttribute="width" secondItem="aVc-EA-93q" secondAttribute="width" id="QMU-dD-vLm"/>
                 <constraint firstAttribute="trailing" secondItem="Cmf-AD-y9C" secondAttribute="trailing" id="Vj0-q0-Ejr"/>
-                <constraint firstAttribute="trailing" secondItem="aVc-EA-93q" secondAttribute="trailing" id="gox-Tj-hgK"/>
-                <constraint firstItem="aVc-EA-93q" firstAttribute="bottom" secondItem="fWr-2S-WgB" secondAttribute="bottom" id="iZ5-hO-sve"/>
+                <constraint firstAttribute="trailing" secondItem="aVc-EA-93q" secondAttribute="trailing" constant="5" id="gox-Tj-hgK"/>
+                <constraint firstItem="aVc-EA-93q" firstAttribute="bottom" secondItem="fWr-2S-WgB" secondAttribute="bottom" constant="-5" id="iZ5-hO-sve"/>
                 <constraint firstItem="RWk-k4-I2l" firstAttribute="height" secondItem="aVc-EA-93q" secondAttribute="height" id="lFD-AB-HqS"/>
                 <constraint firstAttribute="bottom" secondItem="Cmf-AD-y9C" secondAttribute="bottom" id="wdz-bn-KZT"/>
             </constraints>
@@ -53,7 +58,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="deselected" width="20" height="20"/>
+        <image name="deselected" width="30" height="30"/>
         <image name="selected" width="20" height="20"/>
     </resources>
 </document>
